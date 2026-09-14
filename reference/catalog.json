@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0.0",
+  "package": "@konitif/transport-controls",
+  "intent": "Manipulate temporal transport through explicit intents.",
+  "clusters": [
+    {
+      "id": "transport-state",
+      "title": "Transport state",
+      "summary": "Playback phase, range and position state.",
+      "authority": "Canonical local control state.",
+      "owns": ["playback phase", "range", "position"],
+      "doesNotOwn": ["media", "Timeline"],
+      "workflow": ["Create", "Read", "Reduce"],
+      "symbolNames": [
+        "TransportPlaybackState",
+        "TransportRange",
+        "TransportControlState",
+        "createTransportControlState"
+      ]
+    },
+    {
+      "id": "intent-reducer",
+      "title": "Intents and reduction",
+      "summary": "Admissible state transformations.",
+      "authority": "Deterministic reducer.",
+      "owns": ["intents", "transitions"],
+      "doesNotOwn": ["external effects"],
+      "workflow": ["Receive", "Validate", "Reduce"],
+      "symbolNames": ["TransportControlIntent", "reduceTransportControlState"]
+    },
+    {
+      "id": "integration",
+      "title": "Tool module",
+      "summary": "Declare the controls contribution to a registry.",
+      "authority": "Integration declaration.",
+      "owns": ["transport capability"],
+      "doesNotOwn": ["host surface"],
+      "workflow": ["Declare", "Register", "Host"],
+      "symbolNames": ["transportControlsToolModule"]
+    }
+  ]
+}

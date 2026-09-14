@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "1.0.0",
+  "package": "@konitif/transport-controls",
+  "diagrams": [
+    {
+      "id": "transport-intent-reduction",
+      "title": "Reduce a transport intent",
+      "kind": "mechanism",
+      "summary": "Controls convert a gesture into an explicit intent and then into deterministic state before any external integration.",
+      "nodes": [
+        { "id": "gesture", "label": "User gesture", "description": "Play, pause, stop or seek is requested.", "tone": "projection" },
+        { "id": "intent", "label": "Typed intent", "description": "The gesture becomes an explicit operation." },
+        { "id": "reducer", "label": "Reducer", "description": "The admissible transition is calculated." },
+        { "id": "state", "label": "Transport state", "description": "Playback phase, range and position are updated." },
+        { "id": "integration", "label": "Tool contribution", "description": "A host may project and relay this state.", "tone": "runtime" }
+      ],
+      "edges": [
+        { "from": "gesture", "to": "intent" },
+        { "from": "intent", "to": "reducer" },
+        { "from": "reducer", "to": "state" },
+        { "from": "state", "to": "integration" }
+      ],
+      "caption": "The package neither reads nor owns the controlled media."
+    }
+  ]
+}
