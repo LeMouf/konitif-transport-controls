@@ -1,6 +1,6 @@
 # @konitif/transport-controls
 
-Pure, product-neutral transport state and explicit playback-control intents.
+Pure transport state and explicit playback-control intents.
 
 ## Installation
 
@@ -13,7 +13,7 @@ npm install @konitif/transport-controls
 - Transport state for source, playback phase, range, cursor, rate and looping.
 - Explicit load, play, pause, stop, seek, range, rate and loop intents.
 - Deterministic state creation, normalization and reduction.
-- A product-neutral Transport Controls tool-module declaration.
+- A portable Transport Controls tool-module declaration.
 
 ## Authority boundary
 
