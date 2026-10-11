@@ -1,7 +1,7 @@
 {
   "name": "@konitif/transport-controls",
   "license": "PolyForm-Noncommercial-1.0.0",
-  "version": "0.284.2",
+  "version": "0.284.3",
   "private": false,
   "type": "module",
   "description": "Pure transport state and explicit playback-control intents.",

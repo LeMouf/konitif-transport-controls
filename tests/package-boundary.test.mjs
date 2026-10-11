@@ -18,7 +18,7 @@ function sourceFiles(directory) {
 
 test('manifest exposes one public product-neutral package identity', () => {
   assert.equal(manifest.name, '@konitif/transport-controls');
-  assert.equal(manifest.version, '0.284.2');
+  assert.equal(manifest.version, '0.284.3');
   assert.equal(manifest.private, false);
   assert.equal(manifest.license, 'PolyForm-Noncommercial-1.0.0');
   assert.equal(manifest.repository.url, expected.repository);

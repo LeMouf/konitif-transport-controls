@@ -8,7 +8,7 @@ const json = path => JSON.parse(readFileSync(new URL(`../${path}`, import.meta.u
 test('release identity names the independent Transport Controls repository', () => {
   const manifest = json('package.json');
   assert.equal(manifest.repository.url, 'git+https://github.com/LeMouf/konitif-transport-controls.git');
-  assert.equal(manifest.version, '0.284.2');
+  assert.equal(manifest.version, '0.284.3');
   assert.equal(manifest.license, 'PolyForm-Noncommercial-1.0.0');
 });
 
@@ -20,7 +20,7 @@ test('release inputs bind Transport Controls to its exact repository, lock and t
   const lock = JSON.parse(readFileSync(lockUrl, 'utf8'));
   const base = {
     GITHUB_REPOSITORY: 'LeMouf/konitif-transport-controls',
-    GITHUB_REF: 'refs/tags/v0.284.2'
+    GITHUB_REF: 'refs/tags/v0.284.3'
   };
   assert.doesNotThrow(() => assertReleaseInputs(policy, manifest, lock, {
     ...base,
@@ -29,7 +29,7 @@ test('release inputs bind Transport Controls to its exact repository, lock and t
   assert.doesNotThrow(() => assertReleaseInputs(policy, manifest, lock, {
     ...base,
     GITHUB_EVENT_NAME: 'workflow_dispatch',
-    TRANSPORT_CONTROLS_RELEASE_TAG: 'v0.284.2'
+    TRANSPORT_CONTROLS_RELEASE_TAG: 'v0.284.3'
   }));
   assert.throws(() => assertReleaseInputs(policy, manifest, lock, {
     ...base,
@@ -40,7 +40,7 @@ test('release inputs bind Transport Controls to its exact repository, lock and t
     ...base,
     GITHUB_EVENT_NAME: 'workflow_dispatch',
     GITHUB_REF: 'refs/heads/main',
-    TRANSPORT_CONTROLS_RELEASE_TAG: 'v0.284.2'
+    TRANSPORT_CONTROLS_RELEASE_TAG: 'v0.284.3'
   }));
 });
 
